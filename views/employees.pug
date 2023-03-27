@@ -1,0 +1,40 @@
+doctype html 
+html(lan="en") 
+    //- pug does not have opening and closing tags
+    //- indentation should be the same throught
+    //- p.home is how we indicate a class on pug
+    //- pug is compiled back to html when running in the browser
+    head 
+        title Document 
+    body
+        h3 Employees
+        //- line 13 and 12 are a claass and id #is id classes are a represented by a .
+        p.home#child This is pug 
+        div#house more pug 
+        .animal dog 
+             #animal cat
+           
+        //-  we have created a list of tags that lead somewhere from line 17 to 23
+        ul 
+            li 
+                a(href=" /")  home 
+            li 
+                a about    
+            li 
+                a contact     
+        p 
+            //- line 26 and 27 is how you line break
+            <!- -multiple line paragraph- ->
+            | you are logged in as
+            | student user 
+        //- buffering code line 31
+        - 
+            employees=[
+                "john","jane","jackob","justin","jade"
+
+            ]
+        ul 
+          each employee in employees 
+            li #{employee} 
+                                                                            
+        
