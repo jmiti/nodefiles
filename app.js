@@ -5,6 +5,8 @@ const path = require("path");
 const { title } = require('process');
 const router = express.Router();
 const mongoose= require("mongoose")
+const bodyParser= require("body-parser")
+
 // we are creating an eviroment file
 // require("dotenv").config();
 
@@ -15,6 +17,11 @@ const aboutRoutes = require("./routes/employeeAbout")
 const contactRoutes = require("./routes/employeeContacts")
 const registerRoutes = require("./routes/registerRoutes")
 
+// support parsing of application/json type post data
+app.use(bodyParser.json());
+
+//support parsing of application/x-www-form-urlencoded post data
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // creating a connection between the controller and the database
 mongoose.connect(config.database,{

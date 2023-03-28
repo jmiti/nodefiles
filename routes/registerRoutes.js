@@ -13,7 +13,7 @@ router.post("/register", async(req,res)=>{
     try{
         const register = new Register(req.body);
         await register.save()
-        res.redirect("/")
+        res.redirect("/students")
         console.log(req.body)
     }
     catch(err){
@@ -21,6 +21,19 @@ router.post("/register", async(req,res)=>{
     }
 })
 
+
+//we redirect to a path then render a file
+router.get("/students", async(req,res)=>{
+    try{
+        let items = await Register.find();
+        // console.log(items)
+        res.render("students",{students:items})
+    }
+    catch(err){
+        console.log(err)
+        res.send("failed to retrive student details")
+    }
+  });
 
 module.exports = router
 
