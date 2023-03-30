@@ -25,6 +25,10 @@ const registerSchema = new mongoose.Schema({
         type:Number,
         trim:true
     },
+    fees:{
+        type:Number,
+        trim:true
+    }
 
 })
 

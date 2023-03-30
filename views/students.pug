@@ -13,6 +13,8 @@ head
   title Document
 
 .container
+  h3 
+    | Total fees paid: #{total.totalFees}
   fieldset 
     table.table
         thead.thead-dark
@@ -23,6 +25,9 @@ head
                 th(scope='col') Language
                 th(scope='col') City
                 th(scope='col') Age
+                th(scope='col') Fees
+                th(scope='col') action 
+                th(scope='col') action 
         tbody
         if students.length
             each student in students 
@@ -33,7 +38,15 @@ head
                     td #{student.language}
                     td #{student.city}
                     td #{student.age}
-                    
+                    td #{student.fees}
+                    td 
+                      //- we send information to the backend through forms
+                      form(method="post", action="/students/delete")
+                        input(type="hidden", name="id", value=student.id)
+                        button.btn.btn-danger(type="submit") Delete
+                    td 
+                      a.btn.btn-dark.btn-block(href="/edit_student/"+student.id)  Edit    
+
         else
             p there are no students in the database
 

@@ -6,13 +6,13 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Document
 .container
-  form#contact_form.well.form-horizontal(name='registration' action='/register' method='post')
+  form#contact_form.well.form-horizontal(name='editStudent' action='/edit_student?id='+student._id method='post')
     fieldset
       // Form Name
       legend
         center
           h2
-            b Registration Form
+            b Edit Student
       br
       // Text input
       .form-group
@@ -21,7 +21,7 @@ head
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-user
-            input.form-control(name='fullname' type='text')
+            input.form-control(name='fullname' type='text' value=student.fullname )
       // Text input
       .form-group
         label.col-md-4.control-label Phone number
@@ -29,7 +29,7 @@ head
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-user
-            input.form-control(name='phone' type='text')
+            input.form-control(name='phone' type='text' value=student.phone )
      
       // Text input
       .form-group
@@ -38,7 +38,7 @@ head
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-user
-            input.form-control(name='address'  type='text')
+            input.form-control(name='address'  type='text' value=student.address)
       // Text input
       .form-group
         label.col-md-4.control-label Language
@@ -46,7 +46,7 @@ head
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-user
-            input.form-control(name='language' type='text')
+            input.form-control(name='language' type='text' value=student.language)
       // Text input
       .form-group
         label.col-md-4.control-label City
@@ -54,7 +54,7 @@ head
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-user
-            input.form-control(name='city' type='text')
+            input.form-control(name='city' type='text' value=student.city)
       // Num input
       .form-group
         label.col-md-4.control-label Age
@@ -62,15 +62,7 @@ head
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-envelope
-            input.form-control(name='age'  type='number')
-      // Num input
-      .form-group
-        label.col-md-4.control-label Fees
-        .col-md-4.inputGroupContainer
-          .input-group
-            span.input-group-addon
-              i.glyphicon.glyphicon-envelope
-            input.form-control(name='fees'  type='number')
+            input.form-control(name='age'  type='number' value=student.age disabled)
       // Text input
       //.form-group
         label.col-md-4.control-label Contact No.
@@ -87,7 +79,7 @@ head
         label.col-md-4.control-label
         .col-md-4
           br
-          button.btn.btn-warning(type='submit') SUBMIT
+          button.btn.btn-warning(type='submit') UPDATE
            
 
 script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
