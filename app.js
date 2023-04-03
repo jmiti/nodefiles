@@ -17,6 +17,7 @@ const aboutRoutes = require("./routes/employeeAbout")
 const contactRoutes = require("./routes/employeeContacts")
 const registerRoutes = require("./routes/registerRoutes")
 const loginRoutes = require("./routes/loginRoutes")
+const signupRoutes = require("./routes/signupRoutes")
 
 // support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -49,6 +50,7 @@ app.use("/",aboutRoutes )
 app.use("/",contactRoutes)
 app.use("/",registerRoutes)
 app.use("/",loginRoutes)
+app.use("/",signupRoutes)
 
 
 
