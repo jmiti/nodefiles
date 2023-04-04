@@ -6,7 +6,7 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Document
 .container
-  form#contact_form.well.form-horizontal( name="registration" action='/registration' method='post')
+  form#contact_form.well.form-horizontal( name="signup" action='/signup' method='post')
     fieldset
       // Form Name
       legend
@@ -21,7 +21,7 @@ head
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-user
-            input.form-control(name='fistname' type='text')
+            input.form-control(name='firstname' type='text')
       // Text input
       .form-group
         label.col-md-4.control-label Last name
@@ -38,7 +38,7 @@ head
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-user
-            input.form-control(name='uniqueid'  type='text')
+            input.form-control(name='username'  type='text')
       // Text input
       .form-group
         label.col-md-4.control-label Date of Birth
@@ -46,7 +46,7 @@ head
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-user
-            input.form-control(name='dob' type='text')
+            input.form-control(name='dob' type='date')
       // Text input
       .form-group
         label.col-md-4.control-label Gender
@@ -73,7 +73,7 @@ head
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-earphone
-            input.form-control(name='phonenuber' placeholder='07000000000' type='text')
+            input.form-control(name='phonenumber' placeholder='07000000000' type='text')
       // Text input
       .form-group
         label.col-md-4.control-label NIN

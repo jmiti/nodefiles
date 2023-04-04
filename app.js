@@ -6,10 +6,13 @@ const { title } = require('process');
 const router = express.Router();
 const mongoose= require("mongoose")
 const bodyParser= require("body-parser")
+const session= require("express-session")
+const passport= require("passport")
+
 
 // we are creating an eviroment file
 // require("dotenv").config();
-
+const User = require("./models/userModel")
 // importing database file directly
 const config = require("./config/database")
 const employeeRoutes = require("./routes/employeeRoutes")
@@ -18,6 +21,21 @@ const contactRoutes = require("./routes/employeeContacts")
 const registerRoutes = require("./routes/registerRoutes")
 const loginRoutes = require("./routes/loginRoutes")
 const signupRoutes = require("./routes/signupRoutes")
+const authRoutes = require("./routes/authRoutes")
+
+app.use(session({
+  secret: "secret",
+  resave: false,
+  saveUninitialized:false
+}))
+
+// * Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 // support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -51,8 +69,11 @@ app.use("/",contactRoutes)
 app.use("/",registerRoutes)
 app.use("/",loginRoutes)
 app.use("/",signupRoutes)
+app.use("/",authRoutes)
 
-
+app.get("*", (req,res)=>{
+  res.status(404).send("page does not exist")
+})
 
 
 
