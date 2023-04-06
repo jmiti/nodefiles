@@ -15,6 +15,13 @@ head
 .container
   h3 
     | Total fees paid: #{total.totalFees}
+  br
+  br
+  br
+  form(action="/logout" method="POST")   
+    buttton.btn(type="submit" width="100px") Signout
+  br 
+  br
   fieldset 
     table.table
         thead.thead-dark

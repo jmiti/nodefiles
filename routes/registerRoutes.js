@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const connectEnsureLogin = require("connect-ensure-login")
 //imported model
 const Register = require("../models/regiterModel")
 
@@ -22,8 +23,8 @@ router.post("/register", async(req,res)=>{
 })
 
 
-//we redirect to a path then render a file
-router.get("/students", async(req,res)=>{
+//we redirect to a path then render to a file
+router.get("/students", connectEnsureLogin.ensureLoggedIn(), async(req,res)=>{
     try{
         let items = await Register.find();
         // console.log(items)
